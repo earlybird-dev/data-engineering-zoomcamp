@@ -50,7 +50,6 @@ DE Zoomcamp 1.2.1 - Introduction to Docker: https://youtu.be/EYNwNlOrpr0?si=KFYJ
 
         `docker build -t pythonpandas:v.1.0.0 .`
 
-
         ![docker_build](../../images/docker_build.png)
 
     - Run the built image
@@ -84,10 +83,12 @@ DE Zoomcamp 1.2.2 - Ingesting NY Taxi Data to Postgres: https://youtu.be/2JM-ziJ
         `\d yellow_taxi_data` : discribe schema/table
 
 
-
 ## Ingest data into the postgres database using pandas
+
+Donwload data: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/yellow
 
 Jupyter notebook: [ingesting_data_into_postgres_database.ipynb](ingesting_data_into_postgres_database.ipynb)
 
 Task done successfully:
+
 ![Results](../../images/count_rows_yellow_taxi_data.png)
