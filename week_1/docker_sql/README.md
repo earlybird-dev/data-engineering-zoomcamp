@@ -128,5 +128,40 @@ Task done successfully:
         --name pgadmin \
         dpage/pgadmin4
 
+        localhost:8080
+
 
 ![Create a new server](../../images/pgadmin_create_server.png)
+
+# Running Postgres and pgAdmin with Docker Compose
+
+Overview: https://docs.docker.com/compose/
+
+        Docker Compose is a tool for defining and running multi-container applications. It is the key to unlocking a streamlined and efficient development and deployment experience.
+
+        Compose simplifies the control of your entire application stack, making it easy to manage services, networks, and volumes in a single, comprehensible YAML configuration file.
+
+- Create `docker-compose.yaml` file
+
+        services:
+                pgdatabase:
+                        image: postgres:13
+                                environment:
+                                - POSTGRES_USER=root
+                                - POSTGRES_PASSWORD=root
+                                - POSTGRES_DB=ny_taxi
+                        volumes:
+                                - ./ny_taxi_postgres_data:/var/lib/postgresql/data:rw
+                        ports:
+                        -       5432:5432
+                pgadmin:
+                        image: dpage/pgadmin4
+                        environment:
+                                - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+                                - PGADMIN_DEFAULT_PASSWORD=root
+                        ports:
+                                - 8080:80
+
+- Run command line `docker-compose up`
+- Run command line `docker-compose up -d`
+- Run command line `docker-compose down`
