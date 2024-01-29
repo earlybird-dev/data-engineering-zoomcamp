@@ -9,13 +9,14 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project = "de-zoomcamp-2024-412509"
-  region  = "australia-southeast2"
+  credentials = file(var.creds)
+  project = var.project_id
+  region  = var.region
 }
 
 resource "google_storage_bucket" "ny-taxi" {
   name          = "ny-taxi-bucket-de-zoomcamp-2024-412509"
-  location      = "ASIA"
+  location      = var.region
   force_destroy = true
 
   lifecycle_rule {
@@ -26,4 +27,11 @@ resource "google_storage_bucket" "ny-taxi" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+resource "google_bigquery_dataset" "ny_taxi_data" {
+  dataset_id    = "ny_taxi_data"
+  friendly_name = "ny_taxi_data_friendly_name"
+  description   = "This is a test description"
+  location      = var.region
 }
