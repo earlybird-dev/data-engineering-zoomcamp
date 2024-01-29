@@ -5,7 +5,7 @@ week_1/docker_sql/data/green_tripdata_2019-09.csv
 week_1/docker_sql/data/taxi_zone_lookup.csv
 
 # GCP credentials
-week_1/gcp_terraform/keys/de-zoomcamp-2024-412509-f363f10c9802.json
+*.json
 
 
 # Local .terraform directories
